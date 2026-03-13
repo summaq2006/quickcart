@@ -1,15 +1,22 @@
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
+
   return (
     <div className="product-card">
+
       <img src={product.image} alt={product.name} />
 
       <h3>{product.name}</h3>
 
       <p>{product.description}</p>
 
-      <p className="category">{product.category}</p>
+      <p>{product.category}</p>
 
       <h4>₹{product.price}</h4>
+
+      <button onClick={() => addToCart(product)}>
+        Add to Cart
+      </button>
+
     </div>
   );
 }
