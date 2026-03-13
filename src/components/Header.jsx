@@ -1,8 +1,17 @@
-function Header() {
+function Header({ cart = [], setCartOpen }) {
+
+  const totalItems = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   return (
-    <header style={{textAlign:"center", padding:"20px", background:"#2c3e50", color:"white"}}>
+    <header>
       <h1>QuickCart</h1>
-      <p>Your One-Stop Shopping Destination</p>
+
+      <button onClick={() => setCartOpen(true)}>
+        Cart ({totalItems})
+      </button>
     </header>
   );
 }
